@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+
+    <div class="container"></div>
+
+    <script>
+
+        function Pen(cost, color){
+            this.cost = cost;
+            this.color = color;
+        }
+
+        Pen.prototype.getCost = function(){
+            return this.cost;
+        }
+
+        let allPen = [];
+        allPen.push(new Pen(12, "green"));
+        allPen.push(new Pen(15, "red"));
+        allPen.push(new Pen(5, "blue"));
+
+        function allPenCost(){
+            let sum = 0;
+            for (let el of allPen) {
+                sum += el.getCost();
+            }
+            return sum;
+        }
+        //console.log(allPenCost())
+
+
+
+        class TestPen {
+            constructor(cost, color){
+                this.cost = newCost();
+                this.color = color;
+
+                //function newCost(cost){this.cost = cost + 2;}
+                //newCost.call(this, cost);
+            }
+            getCost(){
+                return this.cost;
+            }
+        }
+
+        //let testPen = new TestPen(23, "orange");
+
+        class Element {
+            constructor(classes, container){
+                this.el = document.createElement('div');
+                if(classes){
+                    this.el.classList.add(classes);
+                }
+                if(!container){
+                    document.body.append(this.el);
+                } else {
+                    container.append(this.el)
+                };
+            }
+            setColor(color){
+                this.el.style.backgroundColor = color;
+            }
+            setSize(width, height){
+                this.el.style.width = `${width}px`;
+                this.el.style.height = `${height}px`;
+            }
+        }
+
+        let el1 = new Element('test', document.querySelector('.container'));
+        el1.setSize(100, 200);
+        el1.setColor('red');
+        console.log(el1);
+
+        class Square extends Element{ //наследование класса
+            setSize(value){
+                this.el.style.height = `${value}px`;
+                this.el.style.width = `${value}px`;
+            }
+        }
+
+        let el2 = new Square('test', document.querySelector('.container'));
+        el2.setSize(100);
+        el2.setColor('blue');
+
+        class Circle extends Square{
+            constructor(classes, container){
+                super(classes, container); //доступ к полям наследуемого класса
+                this.el.style.borderRadius = '50%';
+            }
+        }
+
+        let el3 = new Circle();
+        el3.setSize(200);
+        el3.setColor('gold');
+
+    </script>
+</body>
+</html>

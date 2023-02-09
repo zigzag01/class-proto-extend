@@ -8,11 +8,11 @@
 </head>
 <body>
 
-    <div class="container"></div>
+    <div class="Element"></div>
 
     <script>
 
-        function Pen(cost, color){
+        /* function Pen(cost, color){
             this.cost = cost;
             this.color = color;
         }
@@ -98,7 +98,71 @@
 
         let el3 = new Circle();
         el3.setSize(200);
-        el3.setColor('gold');
+        el3.setColor('gold'); */
+
+        ////////////////
+
+        class Element{
+            static elName = 'div';
+            constructor(){
+                function createElement(){
+                    let el = document.createElement(Element.elName);
+                    el.style.position = 'absolute';
+                    el.style.backgroundColor = 'red';
+                    document.body.append(el);
+                    return el;
+                }
+                this.el = createElement();
+                this._width = '';
+                this._height = '';
+            }
+            set width(value){
+                this.value = value;
+                this.el.style.width = `${this._width}px`
+            }
+            set height(value){
+                this.value = value;
+                this.el.style.height = `${this._height}px`
+            }
+            get width(){
+                console.log(this._width);
+            }
+            get height(){
+                console.log(this._height);
+            }
+        }
+        let el1 = new Element();
+        let el2 = new Element();
+       
+        
+        class Element2{
+            #element; //приватный
+            #color = 'green';
+            constructor(){
+                let el = document.createElement('div');
+                el.style.height = '200px';
+                el.style.backgroundColor = this.color;
+                document.body.append(el);
+
+                this.el = el;
+            }
+            set color(value){
+                this.#color = value;
+                this.el.style.backgroundColor = this.#color;
+            }
+            get color(){
+                console.log(this.#color);
+            }
+        }
+
+        let el4 = new Element2();
+
+
+
+
+
+
+
 
     </script>
 </body>

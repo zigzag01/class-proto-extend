@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class-pract</title>
+</head>
+<body>
+    <script>
+
+        //1.
+
+        /* class Car{
+            constructor(color, speed, mark){
+                this.color = color;
+                this.speed = speed;
+                this.mark = mark;
+            }
+            getInfo(color, speed, mark){
+                return `цвет автомобиля: ${this.color}, скорость автомобиля: ${this.speed} км/ч, марка автомобиля: ${this.mark}`;
+            }
+        }
+        let car1 = new Car('черный', '90', 'BMW');
+        car1.getInfo(); */
+
+        //2. 
+
+        class Person{
+            constructor(gender){
+                this.name;
+                this.age;
+                this.gender = gender;                                                 
+            }
+            setName(name){
+                this.name = name;
+                console.log(this.name);
+            }  
+            setAge(age){
+                this.age = age;
+                console.log(this.age);
+            }
+            showGender(gender){
+                console.log(this.gender);
+            }
+        }
+
+        let person1 = new Person('man');
+
+        //3.
+
+        class Element{
+            #color;
+            constructor(){
+                function createModalWindow(){
+                    let el = document.createElement('div');
+                    this.el.style.backgroundColor = this.#color;
+                }
+                this._windowWidth = '';
+                this._headerText = '';
+                this._windowText = '';
+            }
+        }
+        
+
+    </script>
+</body>
+</html>
